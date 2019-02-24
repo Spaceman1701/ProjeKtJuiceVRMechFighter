@@ -30,11 +30,6 @@ namespace VRArmIK
 			}
 		}
 
-		void Awake()
-		{
-			loadPlayerSize();
-		}
-
 		void Start()
 		{
 			onCalibrate += OnCalibrate;
@@ -44,16 +39,6 @@ namespace VRArmIK
 		void OnCalibrate()
 		{
 			playerHeightHmd = Camera.main.transform.position.y;
-		}
-
-		void loadPlayerWidthShoulders()
-		{
-			playerWidthShoulders = PlayerPrefs.GetFloat("VRArmIK_PlayerWidthShoulders", 0.31f);
-		}
-
-		public void savePlayerWidthShoulders(float width)
-		{
-			PlayerPrefs.SetFloat("VRArmIK_PlayerWidthShoulders", width);
 		}
 
 		[ContextMenu("setArmLength")]
@@ -66,16 +51,9 @@ namespace VRArmIK
 
 		public void savePlayerSize(float heightHmd, float widthWrist)
 		{
-			PlayerPrefs.SetFloat("VRArmIK_PlayerHeightHmd", heightHmd);
-			PlayerPrefs.SetFloat("VRArmIK_PlayerWidthWrist", widthWrist);
-			loadPlayerSize();
+			playerHeightHmd = heightHmd;
+			playerWidthWrist = widthWrist;
 			onCalibrate?.Invoke();
-		}
-
-		public void loadPlayerSize()
-		{
-			playerHeightHmd = PlayerPrefs.GetFloat("VRArmIK_PlayerHeightHmd", referencePlayerHeightHmd);
-			playerWidthWrist = PlayerPrefs.GetFloat("VRArmIK_PlayerWidthWrist", referencePlayerWidthWrist);
 		}
 	}
 }
