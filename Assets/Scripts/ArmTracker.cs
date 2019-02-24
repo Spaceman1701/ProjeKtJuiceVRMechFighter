@@ -8,7 +8,9 @@ public class ArmTracker : MonoBehaviour
 
     public GameObject unscaledAnchor;
     public ArmTransforms ikReferenceArm;
+    public Transform ikReferenceShoulders;
 
+    public Transform shoulder;
     public Transform upperArm;
     public Transform lowerArm;
     public Transform hand;
@@ -24,6 +26,7 @@ public class ArmTracker : MonoBehaviour
     void Start()
     {
         ikReferenceArm = unscaledAnchor.GetComponentInChildren<ArmTransforms>();
+        ikReferenceShoulders = unscaledAnchor.transform;
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class ArmTracker : MonoBehaviour
         Quaternion lowerArmRot = ikReferenceArm.lowerArm.localRotation;
         Quaternion handRot = ikReferenceArm.hand.localRotation;
         
+        shoulder.localRotation = ikReferenceShoulders.localRotation;
         upperArm.localRotation = upperArmRot;
         lowerArm.localRotation = lowerArmRot;
         hand.localRotation = handRot;
