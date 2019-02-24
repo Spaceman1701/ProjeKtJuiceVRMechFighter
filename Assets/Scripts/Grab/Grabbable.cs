@@ -16,7 +16,9 @@ public class Grabbable : MonoBehaviour
 
     public void DoGrabAction(HandState handState)
     {
-        grabAction.DoAction(handState);
+        Transform change = grabAction.DoAction(handState);
+        transform.position = change.position; // Might want to make this a gradual change
+        transform.rotation = change.rotation;
     }
 
     public bool isGrabbed()

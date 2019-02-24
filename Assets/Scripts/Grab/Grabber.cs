@@ -40,7 +40,6 @@ public class Grabber : MonoBehaviour
         // If trigger is pushed enough to grab the object
         if (pressVal >= grabMin)
         {
-            Debug.Log("Pressure: " + pressVal);
             BeginGrab();
         }
         else
@@ -52,11 +51,10 @@ public class Grabber : MonoBehaviour
 
     private void BeginGrab()
     {
-        if (hasGrabbedObject)
+        if (grabbedObject != null)
         {
             return;
         }
-        Debug.Log("Beginning grab in Grabber");
 
         Vector3 currentPos = transform.position;
         float closest = float.MaxValue;
@@ -67,6 +65,8 @@ public class Grabber : MonoBehaviour
                 if (dist < closest)
                 {
                     grabbedObject = potentialGrabbed;
+                    Debug.Log("Beginning grab in Grabber");
+
                 }
             }
         }

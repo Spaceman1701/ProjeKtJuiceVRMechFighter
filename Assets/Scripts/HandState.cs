@@ -5,12 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class HandState 
 {
-    public Vector3 position;
+    public Transform transform;   
     public float indexPress = 0;
     
     public float GetIndexPress()
     {
         return indexPress;
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 
     public void Test()

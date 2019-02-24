@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class GrabAction : MonoBehaviour
 {
-    public abstract void DoAction(HandState state);
+    public abstract Transform DoAction(HandState state);
 }

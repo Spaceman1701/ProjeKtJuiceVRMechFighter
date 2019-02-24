@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GrabActionTest : GrabAction
 {
-    public override void DoAction(HandState state)
+    public override Transform DoAction(HandState state)
     {
         Debug.Log("Doing action in GrabActionTest");
         state.Test();
+        return null;
     }
 }
