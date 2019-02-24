@@ -14,6 +14,11 @@ public class HandState : MonoBehaviour
         return indexPress;
     }
 
+    public float GetTriggerPress()
+    {
+        return 0;
+    }
+
     public Transform GetTransform()
     {
         return transform;
