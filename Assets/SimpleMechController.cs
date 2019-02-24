@@ -19,16 +19,17 @@ public class SimpleMechController : MonoBehaviour
     {
 
         OVRInput.Update();
-        if(OVRInput.IsControllerConnected(OVRInput.Controller.LTouch)) {
-            Debug.Log("ltouch connected");
-        }
+
         Vector2 input = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.LTouch);
-        Debug.Log(input);
         Vector3 position = transform.position;
         position.z += input.y * moveSpeed;
         position.x += input.x * moveSpeed;
 
         transform.position = position;
+
+
+        Vector2 rotInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, OVRInput.Controller.RTouch);
+        transform.Rotate(new Vector3(0, rotInput.x, 0), Space.World);
         
     }
 

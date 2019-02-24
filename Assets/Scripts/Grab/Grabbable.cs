@@ -28,11 +28,13 @@ public class Grabbable : MonoBehaviour
 
     public void EndGrab()
     {
+        grabAction.OnEndGrab(grabbedBy.handState);
         grabbedBy = null;
     }
 
     public void BeginGrab(Grabber grabber)
     {
         grabbedBy = grabber;
+        grabAction.OnBeginGrab(grabber.handState);
     }
 }

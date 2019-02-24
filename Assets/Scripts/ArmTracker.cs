@@ -21,6 +21,8 @@ public class ArmTracker : MonoBehaviour
     public Transform lowerElbowJoint;
     public Transform wristJoint;
 
+    public bool trackingEnabled;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,9 @@ public class ArmTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!trackingEnabled) {
+            return;
+        }
         Quaternion upperArmRot = ikReferenceArm.upperArm.localRotation;
         Quaternion lowerArmRot = ikReferenceArm.lowerArm.localRotation;
         Quaternion handRot = ikReferenceArm.hand.localRotation;
@@ -51,6 +56,10 @@ public class ArmTracker : MonoBehaviour
 
     private Vector3 GetShoulderJointDistance() {
         return shoulderAnchor.position - shoulderJoint.position;
+    }
+
+    public void SetTrackingEnabled(bool newValue) {
+        this.trackingEnabled = newValue;
     }
 
 }

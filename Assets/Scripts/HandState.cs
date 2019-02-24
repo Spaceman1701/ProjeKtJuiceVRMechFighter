@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class HandState 
+public class HandState : MonoBehaviour
 {
-    public Transform transform;   
     public float indexPress = 0;
+
+    public OVRInput.Controller controller;
     
     public float GetIndexPress()
     {
@@ -16,6 +17,10 @@ public class HandState
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    public void Update() {
+        indexPress =  OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, controller);
     }
 
     public void Test()

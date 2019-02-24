@@ -25,6 +25,7 @@ public class LeverGrabAction : GrabAction
 
         //Debug.Log("Full rotation quaternion: " + fullRotation.eulerAngles);
         Vector3 newAngles = newTransform.eulerAngles;
+        
         //Debug.Log("New Angles Before Update: " + newAngles);
         //Debug.Log("diffy" + (Mathf.Abs(fullRotation.eulerAngles.y - newAngles.y)-180));
 
