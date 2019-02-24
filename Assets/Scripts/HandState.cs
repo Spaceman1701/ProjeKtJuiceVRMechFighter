@@ -7,10 +7,16 @@ public class HandState
 {
     public Transform transform;   
     public float indexPress = 0;
-    
+    public float triggerPress = 0;
+
     public float GetIndexPress()
     {
         return indexPress;
+    }
+
+    public float GetTriggerPress()
+    {
+        return triggerPress;
     }
 
     public Transform GetTransform()
